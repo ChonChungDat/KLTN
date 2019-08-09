@@ -1,0 +1,12 @@
+.grid-container-2c {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-gap: 10px;
+}
+body{
+	background:url("Image/a.jpg");
+	padding: 5% 5%;
+}
+#ChartContainer, #ChartContainer2{
+		
+}

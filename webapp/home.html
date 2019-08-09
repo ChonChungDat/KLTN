@@ -1,0 +1,103 @@
+<div class="scrollable">
+	<div class="scrollable-content">
+		<div class="list-group text-center">
+			<!-- cục giới thiệu -->
+			<div class = "grid-container-2c">
+				<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-gamepad feature-icon text-primary"></i>
+				</div>
+				<div>
+					<h3 class="home-heading">Thông số Cảm Biến</h3>
+						<h5> Nhiệt Độ: {{NhietDHT}}&#176;C<br>
+						<h5> Độ Ẩm khí: {{AmDHT}}%<br>
+						<h5> Độ Ẩm đất: {{amdat}}%<br>
+						<input type = "text" value = {{NhietDHT}} id = "nhietdo" style="display:none">
+						<input type = "text" value = {{AmDHT}} id = "doam" style="display:none">
+						<input type = "text" value = {{CamBienAS}} id = "anhsang" style="display:none">
+						<input type = "text" value = {{amdat}} id = "dat" style="display:none">
+						<h5> Cường độ ánh sáng: {{CamBienAS}} lux</h4><br>
+				</div>
+			</div>
+			
+			<!-- Cục cảm biế -->
+			
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-gamepad feature-icon text-primary"></i>
+				</div>
+				
+				<div>
+					<!--<h3 class="home-heading">Chế độ hoạt động của hệ thống</h3>-->
+	
+						<h3> Trạng Thái Hệ Thống<br> 
+							<h5>Chế độ hoạt động: {{modeHD}}</h5>
+							<h5>Đèn đang: <b>{{ttden}}</b></h5>
+							<h5>Bơm đang: <b>{{ttbom}}</b></h5>
+							<h5>Phun sương đang: <b>{{ttsuong}}</b></h5>
+				</div>
+				
+				
+			</div>
+			</div>
+			
+			
+			<!-- Cục thay đổi trạng thái thiet bi -->
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-tachometer feature-icon  text-primary"></i>
+				</div>
+				<div>
+					<h3 class="home-heading">Điều khiển Thiết Bị (Only - MANUAL)</h3>
+
+					<div ng-repeat="mode_value in modes_status  track by $index">
+						Chế độ hoạt động: {{mode_value ? "MANUAL" : "AUTO"}}. <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-change="changeMODE()" ng-model="modes_status[$index]" />
+					</div>
+					<div ng-repeat="led_value in leds_status  track by $index">
+						Đèn: {{led_value ? "Tắt" : "Bật"}}. <input id = "led" type="checkbox" ng-true-value="1" ng-false-value="0" ng-change="changeLED()" ng-model="leds_status[$index]" disabled="true" />
+					</div>
+					
+					<div ng-repeat="mbom_value in mbom_status  track by $index">
+						Máy bơm: {{mbom_value ? "Tắt" : "Bật"}}. <input id = "bom" type="checkbox" ng-true-value="1" ng-false-value="0" ng-change="changeMBOM()" ng-model="mbom_status[$index]" disabled="true" />
+					</div>
+					
+					<div ng-repeat="phsuong_value in phsuong_status  track by $index">
+						Phun Sương: {{phsuong_value ? "Tắt" : "Bật"}}. <input id = "suong"type="checkbox" ng-true-value="1" ng-false-value="0" ng-change="changePHSUONG()" ng-model="phsuong_status[$index]" disabled="true"/>
+					</div>
+					
+					
+					
+					
+				</div>
+			</div>
+			
+			<!-- Cục cập nhập giá trị cảm biến -->
+			<div class="list-group-item list-group-item-home">
+				<div>
+					<i class="fa fa-tachometer feature-icon  text-primary"></i>
+				</div>
+				<div>
+					<h3 class="home-heading">Cập Nhật</h3>
+					<button class="button" ng-click="updateSensor()">
+						Nhấn vào đây để cập nhật giá trị cảm biến
+				</div>
+				
+			</div>
+			<div class = "grid-container-2c">
+				<div id="ChartContainer" style="height: 300px; width:100%;"></div>
+				<div id="ChartContainer2" style="height: 300px; width:100%;"></div>
+				
+				
+			</div>
+			
+			
+		</div>
+			
+			
+			
+
+			
+			
+		</div>
+	</div>
+</div>
